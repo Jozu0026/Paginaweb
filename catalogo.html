@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comercial Yaneth - Catálogo</title>
-    <!-- 🔠 Importando una fuente gruesa y moderna -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* === 🎨 VARIABLES DE COLOR === */
         :root {
             --amarillo: #FFD700;
             --negro: #111111;
@@ -30,7 +28,6 @@
             overflow-x: hidden; 
         }
 
-        /* === 📌 ENCABEZADOS OPTIMIZADOS PARA MÓVIL === */
         header {
             background-color: var(--amarillo);
             color: var(--negro);
@@ -62,7 +59,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* === 🎛️ MENÚ PRINCIPAL === */
         .contenedor-menu {
             display: grid;
             grid-template-columns: 1fr; 
@@ -91,7 +87,6 @@
             font-size: 2.2rem;
         }
 
-        /* === 📦 VISTAS DE CATEGORÍAS === */
         .vista-seccion {
             display: none;
             padding: 15px;
@@ -118,9 +113,9 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 4px 6px rgba(255,255,255,0.2);
+            cursor: pointer;
         }
 
-        /* === 🧸 TARJETA DE PRODUCTO === */
         .tarjeta-producto {
             background-color: var(--gris-oscuro);
             border: 2px solid var(--amarillo);
@@ -160,7 +155,6 @@
             color: #ddd;
         }
 
-        /* 📸 GALERÍA AJUSTADA */
         .galeria {
             display: flex;
             flex-direction: column;
@@ -176,7 +170,6 @@
             display: block; 
         }
 
-        /* === 🚧 SECCIÓN EN CONSTRUCCIÓN === */
         .en-construccion {
             text-align: center;
             padding: 40px 15px;
@@ -191,7 +184,6 @@
             margin: 15px 0;
         }
 
-        /* === 📲 BOTÓN WHATSAPP FLOTANTE === */
         .whatsapp-cta {
             position: fixed;
             bottom: 15px;
@@ -222,13 +214,11 @@
 </head>
 <body>
 
-    <!-- 🟡 ENCABEZADO PRINCIPAL -->
     <header id="cabecera">
         <h1>Comercial Yaneth</h1>
         <h2 class="subtitulo">🛒 Catálogo de Ventas | Lo más vendido</h2>
     </header>
 
-    <!-- 🎛️ MENÚ PRINCIPAL -->
     <main id="menu-principal" class="contenedor-menu">
         <div class="boton-menu" onclick="abrirSeccion('seccion-ninos')">
             <span class="emoji">👦🕹️</span>
@@ -256,7 +246,6 @@
         </div>
     </main>
 
-    <!-- 🧸 SECCIÓN: NIÑOS (ROPERO) -->
     <section id="seccion-ninos" class="vista-seccion">
         <button class="btn-regresar" onclick="volverMenu()">⬅️ Volver al Menú Principal</button>
         
@@ -272,17 +261,15 @@
             </p>
 
             <div class="galeria">
-                <!-- 🚨 AQUÍ ESTÁN LAS 5 FOTOS EXACTAS QUE ME MANDASTE 🚨 -->
-                <img src="IMG_20260523_111247.jpg" alt="Ropero frontal Mario Bros">
-                <img src="IMG_20260523_111303.jpg" alt="Ropero interior">
-                <img src="IMG_20260523_111318.jpg" alt="Gavetas cerradas">
-                <img src="IMG_20260523_111328.jpg" alt="Gaveta abierta detalle">
-                <img src="IMG_20260523_111337.jpg" alt="Repisas laterales">
+                <!-- 📸 Aquí están las 4 fotos llamando a los nuevos nombres simples -->
+                <img src="1.jpg" alt="Ropero frontal Mario Bros">
+                <img src="2.jpg" alt="Ropero interior">
+                <img src="3.jpg" alt="Gavetas cerradas">
+                <img src="4.jpg" alt="Gaveta abierta detalle">
             </div>
         </div>
     </section>
 
-    <!-- 🚧 SECCIÓN: EN CONSTRUCCIÓN -->
     <section id="seccion-construccion" class="vista-seccion">
         <button class="btn-regresar" onclick="volverMenu()">⬅️ Volver al Menú Principal</button>
         
@@ -293,12 +280,10 @@
         </div>
     </section>
 
-    <!-- 📲 LLAMADA A LA ACCIÓN (WHATSAPP FIJO) -->
     <a href="https://wa.me/50488463090?text=Hola%20Comercial%20Yaneth,%20estoy%20viendo%20el%20catálogo%20y%20quiero%20cotizar%20un%20artículo." target="_blank" class="whatsapp-cta">
         <span>💬</span> Pregunta y cotiza tu artículo favorito
     </a>
 
-    <!-- ⚙️ SCRIPT DE FUNCIONAMIENTO -->
     <script>
         function abrirSeccion(idSeccion) {
             document.getElementById('menu-principal').style.display = 'none';
