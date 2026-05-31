@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comercial Yaneth - Catálogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* === 🎨 VARIABLES DE COLOR Y ESTILOS GENERALES === */
+        :root {
+            --amarillo: #FFD700;
+            --negro: #111111;
+            --gris-oscuro: #222222;
+            --blanco: #FFFFFF;
+            --verde-wsp: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding-bottom: 100px; /* Espacio para el botón de WhatsApp flotante */
+        }
+
+        /* === 📌 ENCABEZADOS === */
+        header {
+            background-color: var(--amarillo);
+            color: var(--negro);
+            text-align: center;
+            padding: 30px 15px;
+            border-bottom: 5px solid var(--blanco);
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-shadow: 2px 2px 0px var(--blanco);
+        }
+
+        h2.subtitulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 10px;
+            background: var(--negro);
+            color: var(--amarillo);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* === 🎛️ MENÚ PRINCIPAL (BOTONES) === */
+        .contenedor-menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .boton-menu {
+            background-color: var(--gris-oscuro);
+            color: var(--amarillo);
+            border: 3px solid var(--amarillo);
+            padding: 20px 10px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .boton-menu span.emoji {
+            font-size: 2.5rem;
+        }
+
+        .boton-menu:hover, .boton-menu:active {
+            background-color: var(--amarillo);
+            color: var(--negro);
+            transform: scale(1.05);
+        }
+
+        .boton-especial {
+            grid-column: span 2;
+            background-color: var(--amarillo);
+            color: var(--negro);
+            font-size: 1.4rem;
+        }
+
+        /* === 📦 VISTAS DE CATEGORÍAS (OCULTAS POR DEFECTO) === */
+        .vista-seccion {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-regresar {
+            background-color: var(--blanco);
+            color: var(--negro);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(255,255,255,0.2);
+        }
+
+        /* === 🧸 SECCIÓN NIÑOS (PRODUCTO) === */
+        .tarjeta-producto {
+            background-color: var(--gris-oscuro);
+            border: 2px solid var(--amarillo);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .titulo-producto {
+            font-size: 1.8rem;
+            color: var(--amarillo);
+            margin-bottom: 10px;
+        }
+
+        .precio-destacado {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--blanco);
+            background-color: #ff0055; /* Un rojo vibrante para resaltar */
+            padding: 10px 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+            border: 2px dashed var(--blanco);
+        }
+
+        .descripcion {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+        }
+
+        /* Galería de imágenes mejoradas con CSS */
+        .galeria {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            border-radius: 15px;
+            border: 3px solid var(--amarillo);
+            /* Mejora visual por código: más contraste y brillo */
+            filter: contrast(1.1) brightness(1.05);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        /* === 🚧 SECCIÓN EN CONSTRUCCIÓN === */
+        .en-construccion {
+            text-align: center;
+            padding: 50px 20px;
+            border: 3px dashed var(--amarillo);
+            border-radius: 20px;
+            background-color: var(--gris-oscuro);
+        }
+        
+        .en-construccion h2 {
+            font-size: 2rem;
+            color: var(--amarillo);
+            margin: 20px 0;
+        }
+
+        /* === 📲 BOTÓN WHATSAPP FLOTANTE === */
+        .whatsapp-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--verde-wsp);
+            color: var(--blanco);
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 30px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            border: 3px solid var(--blanco);
+            z-index: 1000;
+            transition: transform 0.2s ease;
+        }
+
+        .whatsapp-cta:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        .whatsapp-cta span {
+            font-size: 1.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="cabecera">
+        <h1>Comercial Yaneth</h1>
+        <h2 class="subtitulo">🛒 Catálogo de Ventas | Lo más vendido</h2>
+    </header>
+
+    <main id="menu-principal" class="contenedor-menu">
+        <div class="boton-menu boton-especial" onclick="abrirSeccion('seccion-ninos')">
+            <span class="emoji">👦🕹️</span>
+            Niños (Ver Ofertas)
+        </div>
+        <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
+            <span class="emoji">🛋️</span>
+            Artículos para el hogar
+        </div>
+        <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
+            <span class="emoji">❄️🍳</span>
+            Línea Blanca
+        </div>
+        <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
+            <span class="emoji">📺</span>
+            TVs
+        </div>
+        <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
+            <span class="emoji">🛏️</span>
+            Camas
+        </div>
+        <div class="boton-menu boton-especial" onclick="abrirSeccion('seccion-construccion')">
+            <span class="emoji">🔥</span>
+            Lo más vendido
+        </div>
+    </main>
+
+    <section id="seccion-ninos" class="vista-seccion">
+        <button class="btn-regresar" onclick="volverMenu()">⬅️ Volver al Menú</button>
+        
+        <div class="tarjeta-producto">
+            <h2 class="titulo-producto">Ropero de Madera Mario Bros</h2>
+            
+            <div class="precio-destacado">
+                💰 L. 4000
+            </div>
+            
+            <p class="descripcion">
+                ✅ <strong>Organización total:</strong> Hermoso y resistente ropero de madera ideal para los reyes del hogar. Cuenta con 9 gavetas amplias, tubo para colgar ropa sin arrugas, espejo frontal integrado y repisas laterales. ¡Con diseño especial de Mario Bros que a los niños les encantará!
+            </p>
+
+            <div class="galeria">
+                <img src="IMG_20260523_111247.jpg" alt="Ropero frontal">
+                <img src="IMG_20260523_111303.jpg" alt="Ropero interior">
+                <img src="IMG_20260523_111318.jpg" alt="Gavetas ropero">
+                <img src="IMG_20260523_111337.jpg" alt="Repisas ropero">
+            </div>
+        </div>
+    </section>
+
+    <section id="seccion-construccion" class="vista-seccion">
+        <button class="btn-regresar" onclick="volverMenu()">⬅️ Volver al Menú</button>
+        
+        <div class="en-construccion">
+            <span style="font-size: 4rem;">🚧👷‍♂️</span>
+            <h2>¡En Construcción!</h2>
+            <p style="font-size: 1.2rem;">Pronto subiremos más opciones, precios y fotos a esta sección. ¡Estamos trabajando para ti!</p>
+        </div>
+    </section>
+
+    <a href="https://wa.me/50488463090?text=Hola%20Comercial%20Yaneth,%20estoy%20viendo%20el%20catálogo%20y%20quiero%20cotizar%20un%20artículo." target="_blank" class="whatsapp-cta">
+        <span>💬</span> Pregunta y cotiza tu artículo favorito
+    </a>
+
+    <script>
+        // Función para ocultar el menú y mostrar la sección deseada
+        function abrirSeccion(idSeccion) {
+            document.getElementById('menu-principal').style.display = 'none';
+            document.getElementById('cabecera').style.display = 'none'; // Oculta el rotulo gigante para dar más espacio
+            
+            // Ocultar todas las secciones primero
+            let secciones = document.querySelectorAll('.vista-seccion');
+            secciones.forEach(function(seccion) {
+                seccion.style.display = 'none';
+            });
+
+            // Mostrar la sección seleccionada
+            document.getElementById(idSeccion).style.display = 'block';
+            window.scrollTo(0,0); // Subir la pantalla arriba
+        }
+
+        // Función para volver al menú principal
+        function volverMenu() {
+            // Ocultar todas las secciones
+            let secciones = document.querySelectorAll('.vista-seccion');
+            secciones.forEach(function(seccion) {
+                seccion.style.display = 'none';
+            });
+
+            // Mostrar el menú principal y el rotulo gigante
+            document.getElementById('cabecera').style.display = 'block';
+            document.getElementById('menu-principal').style.display = 'grid';
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
