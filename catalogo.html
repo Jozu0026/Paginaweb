@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Comercial Yaneth - Catálogo PRO</title>
-    <!-- 🔠 Fuente Profesional -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <title>Comercial Yaneth - Catálogo</title>
+    <!-- 🔠 Importando una fuente gruesa y moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* === 🎨 PALETA DE COLORES Y VARIABLES === */
+        /* === 🎨 VARIABLES DE COLOR === */
         :root {
             --amarillo: #FFD700;
-            --amarillo-brillante: #FFE55C;
-            --negro: #0a0a0a;
-            --gris-oscuro: #1a1a1a;
+            --negro: #111111;
+            --gris-oscuro: #222222;
             --blanco: #FFFFFF;
             --verde-wsp: #25D366;
-            --rojo-oferta: #ff0055;
         }
 
         * {
@@ -23,30 +21,25 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            -webkit-tap-highlight-color: transparent; /* Quita el cuadro azul al tocar en móviles */
         }
 
         body {
             background-color: var(--negro);
             color: var(--blanco);
-            padding-bottom: 100px; 
+            padding-bottom: 90px;
             overflow-x: hidden; 
-            scroll-behavior: smooth;
         }
 
-        /* === 📌 ENCABEZADO FIJO (STICKY) === */
+        /* === 📌 ENCABEZADOS OPTIMIZADOS PARA MÓVIL === */
         header {
-            background: linear-gradient(135deg, var(--amarillo), var(--amarillo-brillante));
+            background-color: var(--amarillo);
             color: var(--negro);
             text-align: center;
-            padding: 20px 10px;
+            padding: 25px 10px;
             border-bottom: 4px solid var(--blanco);
-            border-radius: 0 0 25px 25px;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
-            margin-bottom: 25px;
-            position: sticky;
-            top: 0;
-            z-index: 100; /* Siempre por encima del contenido */
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -54,24 +47,22 @@
             font-weight: 900;
             text-transform: uppercase;
             line-height: 1.1;
-            letter-spacing: -1px;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+            text-shadow: 2px 2px 0px var(--blanco);
         }
 
         h2.subtitulo {
-            font-size: 0.95rem;
-            font-weight: 800;
-            margin-top: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 10px;
             background: var(--negro);
             color: var(--amarillo);
             display: inline-block;
-            padding: 6px 16px;
+            padding: 8px 15px;
             border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        /* === 🎛️ MENÚ PRINCIPAL TIPO APP === */
+        /* === 🎛️ MENÚ PRINCIPAL === */
         .contenedor-menu {
             display: grid;
             grid-template-columns: 1fr; 
@@ -80,199 +71,161 @@
         }
 
         .boton-menu {
-            background: linear-gradient(145deg, var(--gris-oscuro), #2a2a2a);
+            background-color: var(--gris-oscuro);
             color: var(--amarillo);
-            border: 2px solid #333;
-            padding: 18px 15px;
-            border-radius: 18px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-align: left;
+            border: 2px solid var(--amarillo);
+            padding: 15px 10px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .boton-menu:active {
-            transform: scale(0.96);
-            border-color: var(--amarillo);
         }
 
         .boton-menu span.emoji {
-            font-size: 2.5rem;
-            background: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 15px;
+            font-size: 2.2rem;
         }
 
-        .btn-destacado {
-            background: linear-gradient(145deg, var(--amarillo), var(--amarillo-brillante));
-            color: var(--negro);
-            border: none;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        /* === 📦 VISTAS DE CATEGORÍAS ANIMADAS === */
+        /* === 📦 VISTAS DE CATEGORÍAS === */
         .vista-seccion {
             display: none;
             padding: 15px;
-            animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .btn-regresar {
-            background-color: var(--gris-oscuro);
-            color: var(--blanco);
-            border: 2px solid #444;
+            background-color: var(--blanco);
+            color: var(--negro);
+            border: none;
             width: 100%;
             padding: 15px;
             font-size: 1.1rem;
-            font-weight: 800;
-            border-radius: 15px;
-            margin-bottom: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(255,255,255,0.2);
         }
-        
-        .btn-regresar:active { background-color: #333; }
 
-        /* === 🧸 TARJETA DE PRODUCTO PRO === */
+        /* === 🧸 TARJETA DE PRODUCTO === */
         .tarjeta-producto {
-            background: var(--gris-oscuro);
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 20px;
+            background-color: var(--gris-oscuro);
+            border: 2px solid var(--amarillo);
+            border-radius: 15px;
+            padding: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
         .titulo-producto {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--amarillo);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.2;
-            font-weight: 900;
         }
 
         .precio-destacado {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 900;
             color: var(--blanco);
-            background: linear-gradient(90deg, #ff0055, #cc0044);
-            padding: 12px 20px;
-            border-radius: 15px;
+            background-color: #ff0055;
+            padding: 10px 15px;
+            border-radius: 12px;
             display: inline-block;
-            margin-bottom: 20px;
-            border: 3px dashed var(--blanco);
+            margin-bottom: 15px;
+            border: 2px dashed var(--blanco);
             width: 100%; 
-            animation: latido 2s infinite; /* Animación para que el precio palpite */
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
-        }
-
-        @keyframes latido {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
         }
 
         .descripcion {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
             text-align: left;
-            padding: 18px;
-            background: rgba(0,0,0,0.4);
-            border-radius: 15px;
-            border-left: 4px solid var(--amarillo);
-            color: #eee;
+            padding: 15px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 10px;
+            color: #ddd;
         }
 
-        /* 📸 GALERÍA HD MÓVIL */
+        /* 📸 GALERÍA AJUSTADA */
         .galeria {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .galeria img {
             width: 100%; 
             height: auto;
-            border-radius: 15px;
-            border: 2px solid #444;
-            filter: contrast(1.15) saturate(1.1); /* Satura los colores un poco para más viveza */
+            border-radius: 10px;
+            border: 2px solid var(--amarillo);
+            filter: contrast(1.1) brightness(1.05); 
             display: block; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         /* === 🚧 SECCIÓN EN CONSTRUCCIÓN === */
         .en-construccion {
             text-align: center;
-            padding: 50px 20px;
-            border: 2px dashed #555;
-            border-radius: 20px;
-            background: linear-gradient(145deg, var(--gris-oscuro), #111);
+            padding: 40px 15px;
+            border: 2px dashed var(--amarillo);
+            border-radius: 15px;
+            background-color: var(--gris-oscuro);
         }
         
         .en-construccion h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--amarillo);
             margin: 15px 0;
         }
 
-        /* === 📲 BOTÓN WHATSAPP FLOTANTE PRO === */
+        /* === 📲 BOTÓN WHATSAPP FLOTANTE === */
         .whatsapp-cta {
             position: fixed;
-            bottom: 20px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(90deg, #25D366, #1ebd5a);
+            background-color: var(--verde-wsp);
             color: var(--blanco);
             width: 92%; 
-            padding: 16px;
-            border-radius: 30px;
+            padding: 12px;
+            border-radius: 25px;
             text-align: center;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-size: 1.1rem;
+            font-weight: 900;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
-            border: 2px solid rgba(255,255,255,0.4);
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+            border: 2px solid var(--blanco);
             z-index: 1000;
-            backdrop-filter: blur(5px);
         }
 
         .whatsapp-cta span {
-            font-size: 1.8rem;
-            animation: bounce 2s infinite; /* Icono brincando suavemente */
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-5px);}
-            60% {transform: translateY(-3px);}
+            font-size: 1.6rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- 🟡 ENCABEZADO FIJO PRO -->
+    <!-- 🟡 ENCABEZADO PRINCIPAL -->
     <header id="cabecera">
         <h1>Comercial Yaneth</h1>
-        <h2 class="subtitulo">🛒 Catálogo de Ventas</h2>
+        <h2 class="subtitulo">🛒 Catálogo de Ventas | Lo más vendido</h2>
     </header>
 
     <!-- 🎛️ MENÚ PRINCIPAL -->
@@ -286,18 +239,18 @@
             Artículos para el hogar
         </div>
         <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
-            <span class="emoji">❄️</span>
+            <span class="emoji">❄️🍳</span>
             Línea Blanca
         </div>
         <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
             <span class="emoji">📺</span>
-            TVs y Tecnología
+            TVs
         </div>
         <div class="boton-menu" onclick="abrirSeccion('seccion-construccion')">
             <span class="emoji">🛏️</span>
-            Camas y Colchones
+            Camas
         </div>
-        <div class="boton-menu btn-destacado" onclick="abrirSeccion('seccion-construccion')">
+        <div class="boton-menu" style="background-color: var(--amarillo); color: var(--negro);" onclick="abrirSeccion('seccion-construccion')">
             <span class="emoji">🔥</span>
             Lo más vendido
         </div>
@@ -315,15 +268,16 @@
             </div>
             
             <p class="descripcion">
-                ✅ <strong>Organización total:</strong> Hermoso y resistente ropero de madera ideal para los reyes del hogar. Cuenta con 9 gavetas amplias, tubo para colgar ropa, espejo frontal y repisas laterales. ¡Con diseño especial de Mario Bros que no encontrarás en otro lado!
+                ✅ <strong>Organización total:</strong> Hermoso y resistente ropero de madera ideal para los reyes del hogar. Cuenta con 9 gavetas amplias, tubo para colgar ropa, espejo frontal y repisas laterales. ¡Con diseño especial de Mario Bros!
             </p>
 
             <div class="galeria">
-                <!-- Imágenes en la misma carpeta -->
+                <!-- 🚨 AQUÍ ESTÁN LAS 5 FOTOS EXACTAS QUE ME MANDASTE 🚨 -->
                 <img src="IMG_20260523_111247.jpg" alt="Ropero frontal Mario Bros">
                 <img src="IMG_20260523_111303.jpg" alt="Ropero interior">
-                <img src="IMG_20260523_111318.jpg" alt="Gavetas ropero">
-                <img src="IMG_20260523_111337.jpg" alt="Repisas ropero">
+                <img src="IMG_20260523_111318.jpg" alt="Gavetas cerradas">
+                <img src="IMG_20260523_111328.jpg" alt="Gaveta abierta detalle">
+                <img src="IMG_20260523_111337.jpg" alt="Repisas laterales">
             </div>
         </div>
     </section>
@@ -333,9 +287,9 @@
         <button class="btn-regresar" onclick="volverMenu()">⬅️ Volver al Menú Principal</button>
         
         <div class="en-construccion">
-            <span style="font-size: 4rem;">🚧👷‍♂️</span>
+            <span style="font-size: 3.5rem;">🚧👷‍♂️</span>
             <h2>¡En Construcción!</h2>
-            <p style="color: #aaa;">Pronto subiremos más opciones, modelos y precios aquí. ¡Estamos preparando lo mejor para ti!</p>
+            <p>Pronto subiremos más opciones. ¡Estamos trabajando para ti!</p>
         </div>
     </section>
 
@@ -344,11 +298,11 @@
         <span>💬</span> Pregunta y cotiza tu artículo favorito
     </a>
 
-    <!-- ⚙️ SCRIPT DE NAVEGACIÓN SUAVE -->
+    <!-- ⚙️ SCRIPT DE FUNCIONAMIENTO -->
     <script>
         function abrirSeccion(idSeccion) {
             document.getElementById('menu-principal').style.display = 'none';
-            // Mantenemos la cabecera visible porque es útil, pero subimos el scroll
+            document.getElementById('cabecera').style.display = 'none'; 
             
             let secciones = document.querySelectorAll('.vista-seccion');
             secciones.forEach(function(seccion) {
@@ -356,7 +310,7 @@
             });
 
             document.getElementById(idSeccion).style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            window.scrollTo(0,0); 
         }
 
         function volverMenu() {
@@ -365,8 +319,9 @@
                 seccion.style.display = 'none';
             });
 
+            document.getElementById('cabecera').style.display = 'block';
             document.getElementById('menu-principal').style.display = 'grid';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0,0);
         }
     </script>
 </body>
